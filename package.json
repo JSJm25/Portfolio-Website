@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-website",
+  "version": "0.0.1",
+  "description": "A website I'm making to showcase my skills as a web developer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "Jeffrey Morrison MacMullin II",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
