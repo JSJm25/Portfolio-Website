@@ -1,14 +1,16 @@
 {
   "name": "portfolio-website",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A website I'm making to showcase my skills as a web developer.",
   "main": "index.js",
   "scripts": {
-    "test": "start"
+    "start": "node index.js"
   },
   "author": "Jeffrey Morrison MacMullin II",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   }
 }
