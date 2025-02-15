@@ -1,6 +1,6 @@
 {
   "name": "portfolio-website",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A website I'm making to showcase my skills as a web developer.",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "cheerio": "^1.0.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
   }
