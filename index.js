@@ -40,6 +40,13 @@ app.get('/micros', (req, res) => {
     res.send($.html());
 });
 
+app.get('/contact', (req, res) => {
+    const path = `${_dir}contact.html`
+    const $ = loadHtml(path);
+    $('#header').replaceWith(req.headerHTML);
+    res.send($.html());
+});
+
 //Listening Function
 const listener = app.listen(process.env.PORT, () => {
     console.log(`Listening at http://localhost:${process.env.PORT}/`);
