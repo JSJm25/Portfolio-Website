@@ -1,4 +1,8 @@
 const { express, app, fs, path, cheerio } = require('./scripts/dependencies.js');
+const { logger } = require('./scripts/utilities.js');
+
+require('./scripts/micros.js');
+
 require('dotenv').config()
 
 //Variables
@@ -13,11 +17,6 @@ function loadHtml(filePath)
 
 app.use(express.json());
 app.use('/public', express.static(`${process.cwd()}/public`));
-app.use((req, res, done) =>{
-    let d = new Date();
-    console.log(`${req.method}    ${req.path} - ${req.ip} at ${d}`);
-    done();
-});
 
 app.use((req, res, next) => {
     const headerPath = `${__dirname}/views/templates/header.html`;
