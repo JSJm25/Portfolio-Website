@@ -3,8 +3,8 @@
 
 :root
 {
---bg-color: linear-gradient(25deg, rgb(50, 10, 10) 5%, rgb(25,0,0) 10%, black 40%);
---fg-color: rgba(75, 20, 20, .30);
+--bg-color: rgb(50, 10, 10);
+--fg-color: rgb(50, 10, 10);
 }
 
 *
@@ -19,32 +19,16 @@ body
     padding: 0;
     height: 100vh;
     width: 100vw;
-    background: var(--bg-color);
-    background-size: cover;
+    background: black;
+    animation: fadeIn 2s;
 }
-
 .fg
 {
     background-color: var(--fg-color);
 }
 
-@keyframes glow 
-{
-    from {
-        box-shadow: 0 0 5px rgb(127, 0, 0);
-    }
-    to {
-        box-shadow: 0 0 10px rgb(155, 20, 20)
-    }
-}
-
 .header
 {
-    border-bottom: 1px solid rgb(127, 0, 0);
-    box-shadow: 0px 0px 10px rgb(127, 0, 0);
-    border-radius: 0 0 0 10%;
-    animation: glow 2s infinite alternate;
-    /*Header glowing effect styled seperately because its only supposed to be on the bottom*/
     padding: 10px 0;
     margin: 0px auto 1.2em;
 }
@@ -57,16 +41,28 @@ body
     justify-content: center;
 }
 
-.glowing
+.welcome_container
 {
-    border: 1px solid rgb(127, 0, 0);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(127, 0, 0);
-    animation: glow 2s infinite alternate;
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    margin: 15px auto;
 }
-
 ._container
 {
-    margin: 15px auto;
+    margin: 15px;
     padding: 15px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+.about_container
+{
+    text-align: center;
+    width: 50%;
+}
+.featured_container
+{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
 }
