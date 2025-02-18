@@ -1,0 +1,27 @@
+form
+{
+    width: 50%;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid rgb(30, 0, 0);
+    border-bottom: 1px solid rgb(30, 0, 0);
+}
+
+.upload-button,
+.upload-field
+{
+    background: black;
+    color: white;
+    margin: 15px auto;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.timestamp-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

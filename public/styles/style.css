@@ -5,6 +5,7 @@
 {
 --bg-color: rgb(50, 10, 10);
 --fg-color: rgb(50, 10, 10);
+--link-color: rgb(100, 30, 30);
 }
 
 *
@@ -53,7 +54,7 @@ body
     margin: 15px;
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid rgb(30, 0, 0);
 }
 .about_container
 {
@@ -65,4 +66,21 @@ body
     width: 30%;
     display: flex;
     flex-direction: column;
+}
+.featured-project
+{
+    border-radius: 10px;
+    border: 1px solid white;
+    margin: 10px auto;
+    padding: 5px;
+    width: 85%;
+}
+.featured-link{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.featured-link:hover{
+    cursor: pointer;
+    background-color: var(--link-color);
 }
