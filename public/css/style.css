@@ -3,6 +3,7 @@
 
 :root
 {
+color-scheme: light dark;
 --bg-color: rgb(50, 10, 10);
 --fg-color: rgb(50, 10, 10);
 --link-color: rgb(100, 30, 30);
@@ -11,7 +12,7 @@
 *
 {
     font-family: 'Times New Roman', Times, serif;
-    color: white;
+    color: light-dark(black, white);
 }
 
 body 
@@ -20,18 +21,21 @@ body
     padding: 0;
     height: 100vh;
     width: 100vw;
-    background: black;
+    background: light-dark(#FFF, #000);
     animation: fadeIn 2s;
 }
+
 .fg
 {
-    background-color: var(--fg-color);
+    background-color: light-dark(#FFF, var(--fg-color));
 }
 
 .header
 {
     padding: 10px 0;
     margin: 0px auto 1.2em;
+    border-bottom: 1px solid;
+    border-color: light-dark(#000, var(--fg-color));
 }
 
 .main
@@ -49,6 +53,7 @@ body
     width: 75%;
     margin: 15px auto;
 }
+
 ._container
 {
     margin: 15px;
@@ -61,12 +66,14 @@ body
     text-align: center;
     width: 50%;
 }
+
 .featured_container
 {
     width: 30%;
     display: flex;
     flex-direction: column;
 }
+
 .featured-project
 {
     border-radius: 10px;
@@ -75,12 +82,22 @@ body
     padding: 5px;
     width: 85%;
 }
-.featured-link{
+
+.header-nav-anchor,
+.featured-link
+{
     width: 100%;
     height: 100%;
-    border-radius: 10px;
 }
-.featured-link:hover{
+
+.featured-link:hover,
+.header-nav-anchor:hover
+{
     cursor: pointer;
-    background-color: var(--link-color);
+    background-color: light-dark(rgb(127,127,127), var(--link-color));
+}
+
+a
+{
+    color: light-dark(#000, #FFF)
 }
