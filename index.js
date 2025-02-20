@@ -12,7 +12,7 @@ const _dir = __dirname + '/views/';
 
 app.use(express.json());
 
-app.use('/public', express.static(`${__dirname}/public/`));
+app.use(express.static(`${__dirname}/public/`));
 
 app.use((req, res, done) =>{
     let d = new Date();
