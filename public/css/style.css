@@ -99,5 +99,5 @@ body
 
 a
 {
-    color: light-dark(#000, #FFF)
+    color: light-dark(#000, #FFF);
 }

@@ -12,7 +12,7 @@ const _dir = __dirname + '/views/';
 
 app.use(express.json());
 
-app.use(express.static(`${__dirname}/public/`));
+app.use('/public/', express.static(`${__dirname}/public/`));
 
 app.use((req, res, done) =>{
     let d = new Date();
@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
     const path = `${_dir}index.html`
     const $ = loadHtml(path);
     $('#header').replaceWith(req.headerHTML);
+    $('#home').remove();
     res.send($.html());
 }); // get request to "/" is seperate from '/:path' because the html file is named index.html and not /.html
 
@@ -42,6 +43,7 @@ app.get('/:path', (req, res) => {
     const path = `${_dir}${p}.html`;
     const $ = loadHtml(path);
     $('#header').replaceWith(req.headerHTML);
+    $(`#${p}`).remove();
     const titleString = pageTitles(p);
     $("#page-title").text(titleString);
     res.send($.html());
