@@ -86,17 +86,25 @@ header
     justify-content: center;
     align-items: center;
     background: var(--fg-color);
-    width: 120px;
+    width: 100px;
     height: 32px;
 }
 .header-nav-link > i
 {
     margin: 10px;
 }
+@keyframes grow {
+    from {
+        width: 100px;
+    }
+    to {
+        width: 140px;
+    }
+}
 .header-nav-link:hover
 {
+    animation: grow .5s;
     width: 140px;
-    height: 34px;
     box-shadow: 0 -10px 10px -10px var(--fg-color);
 }
 
