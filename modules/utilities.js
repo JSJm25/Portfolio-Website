@@ -12,21 +12,27 @@ function pageTitles(string)
     switch(string)
     {
         case 'micros':
-            return "Micro Services"
+            return "Micro Services";
         case 'contact':
-            return 'Contact Me'
+            return 'Contact Me';
         case 'projects':
-            return 'Projects'
+            return 'Projects';
         case 'timestamp':
-            return "TimeStamp Microservice"
+            return "TimeStamp Microservice";
         case 'metadata':
-            return "File MetaData Microservice"
+            return "File MetaData Microservice";
         default:
             return "Jeffrey's Portfolio";
     }
 }
 
+const insertHeader = ($doc, header, navID, title) => {
+    $doc('#header').html(header);
+    $doc(`#${navID}`).remove();
+    $doc("#page-title").text(title);
+}
 module.exports = {
     loadHtml,
-    pageTitles
+    pageTitles,
+    insertHeader
 }
