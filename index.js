@@ -1,5 +1,5 @@
 const { express, app, fs, path, cheerio } = require('./modules/dependencies.js');
-const { loadHtml, pageTitles } = require('./modules/utilities.js');
+const { loadHtml, pageTitles, insertHeader } = require('./modules/utilities.js');
 
 require('./modules/micros.js');
 require('dotenv').config()
@@ -24,28 +24,25 @@ app.use((req, res, done) =>{
 app.use((req, res, next) => {
     const headerPath = `${_dir}templates/header.html`;
     const $header = loadHtml(headerPath);
-    req.headerHTML = $header.html();
+    req.headerHTML = $header('#header').html();
     next();
 });
 
 //get methods
-app.get('/', (req, res) => {
+const entryPoint = app.get('/', (req, res) => {
     const path = `${_dir}index.html`
     const $ = loadHtml(path);
-    $('#header').replaceWith(req.headerHTML);
-    $('#home').remove();
+    insertHeader($, req.headerHTML, 'home', "home");
     res.send($.html());
-}); // get request to "/" is seperate from '/:path' because the html file is named index.html and not /.html
+}); // entry point for site
 
 
-app.get('/:path', (req, res) => {
+const navigation = app.get('/:path', (req, res) => {
     const p = req.params.path;
     const path = `${_dir}${p}.html`;
     const $ = loadHtml(path);
-    $('#header').replaceWith(req.headerHTML);
-    $(`#${p}`).remove();
     const titleString = pageTitles(p);
-    $("#page-title").text(titleString);
+    insertHeader($, req.headerHTML, p, titleString);
     res.send($.html());
 }); //Navigate the main pages on the site
 
