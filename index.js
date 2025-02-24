@@ -14,10 +14,10 @@ app.use(express.json());
 
 app.use('/public/', express.static(`${__dirname}/public/`));
 
-app.use((req, res, done) =>{
+app.use((req, res, next) =>{
     let d = new Date();
     console.log(`${req.method}    ${req.path} - ${req.ip} at ${d}`);
-    done();
+    next();
 }); // Logs requests
 
  // Use method that that assigns the header element to the request object so It can be appended to any html response
@@ -38,12 +38,14 @@ const entryPoint = app.get('/', (req, res) => {
 
 
 const navigation = app.get('/:path', (req, res) => {
+    console.time();
     const p = req.params.path;
     const path = `${_dir}${p}.html`;
     const $ = loadHtml(path);
     const titleString = pageTitles(p);
     insertHeader($, req.headerHTML, p, titleString);
     res.send($.html());
+    console.timeEnd();
 }); //Navigate the main pages on the site
 
 app.get('/micros/:path', (req, res) => {
