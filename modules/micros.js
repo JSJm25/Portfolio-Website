@@ -2,7 +2,8 @@ const { express, app, fs, path, cheerio, multer } = require('./dependencies.js')
 const { loadHtml } = require('./utilities.js');
 require('dotenv').config()
 
-const timeStamp = app.get('/micros/timestamp/time', (req, res) => {
+
+const timeStamp = app.get('/timestamp/time', (req, res) => {
     const d = new Date();
     const ms = d.valueOf();
     const string = d.toLocaleString();
@@ -13,7 +14,7 @@ const timeStamp = app.get('/micros/timestamp/time', (req, res) => {
     });
 });
 
-const analyse = app.post('/micros/metadata/analysis', multer().single("uploadedFile"), (req, res) => {
+const analyse = app.post('/metadata/analysis', multer().single("uploadedFile"), (req, res) => {
     if (req.file) {
 
         const { originalname, mimetype, size } = req.file;

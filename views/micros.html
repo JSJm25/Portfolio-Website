@@ -13,33 +13,6 @@
         </header>
         <main>
 
-            <div class="fg _container container container-fluid mx-auto" id="metadata">
-
-                <h2 class="text-center my-1 text-decoration-underline">File Meta Data MicroService</h2>
-                <p class="text-center my-1">This is a post request to '/micros/metadata/analysis'. It responds with a json file containing the name, file type, and file size in megabytes.</p>
-                <form enctype="multipart/form-data" method="POST" action="/micros/metadata/analysis">
-                    <input id="inputfield" type="file" name="uploadedFile" class="upload-field" />
-                    <input id="button" type="submit" value="Upload" class="btn upload-button"/>
-                </form>
-
-            </div>
-
-            <div class="fg _container container container-fluid mx-auto timestamp-container" id="timestamp">
-                <h2 class="text-center my-1 text-decoration-underline">Time Stamp MicroService</h2>
-                <iframe width="500px" height="250px" class="d-block mx-auto my-3" src="/micros/timestamp/time" id="stampIframe"></iframe>
-
-                <input type="button" class="btn upload-button" id="newTimeStamp" value="Get New TimeStamp" />
-                <script defer>
-                    let btn = document.getElementById('newTimeStamp');
-                    let iframe = document.getElementById('stampIframe');
-                    btn.onclick = () => {
-                        iframe.style.visibility = 'hidden';
-                        iframe.src = '/micros/timestamp/time';
-                        iframe.style.visibility = 'visible';
-                    }
-                </script>
-            </div>
-
         </main>
     </body>
 </html>

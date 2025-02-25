@@ -26,9 +26,9 @@ function pageTitles(string)
     }
 }
 
-const insertHeader = ($doc, header, navID, title) => {
+const insertHeader = ($doc, header, navID, title, bool = true) => {
     $doc('#header').html(header);
-    $doc(`#${navID}`).remove();
+    if(bool) $doc(`#${navID}`).remove();
     $doc("#page-title").text(title);
 }
 module.exports = {

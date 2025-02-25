@@ -48,21 +48,16 @@ const navigation = app.get('/:path', (req, res) => {
     console.timeEnd();
 }); //Navigate the main pages on the site
 
-app.get('/micros/:path', (req, res) => {
-        const p = req.params.path;
-        const path = `${_dir}/microservices/${p}.html`;
-        const $ = loadHtml(path);
-        const microsPath = `${_dir}/micros.html`
-        const $microservicecollection = loadHtml(microsPath);
-        const microServiceHTMLDiv = $microservicecollection(`#${p}`) 
-        $('#header').replaceWith(req.headerHTML);
-        $(`#${p}`).replaceWith(microServiceHTMLDiv);
-
-        const titleString = pageTitles(p);
-        $("#page-title").text(titleString);
-
-        res.send($.html());
-}); //Microservices Navigation
+const project = app.get('/project/:path', (req, res) => {
+    console.time();
+    const p = req.params.path;
+    const path = `${_dir}${p}.html`;
+    const $ = loadHtml(path);
+    const titleString = pageTitles(p);
+    insertHeader($, req.headerHTML, p, titleString, false);
+    res.send($.html());
+    console.timeEnd();
+})
 
 //Listening Function
 
