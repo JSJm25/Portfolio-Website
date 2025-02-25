@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Jeffrey's Metadata microservice</title>
+        <meta charset="UTF-8"/>
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+        <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/public/css/micros.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header id="header">
+        </header>
+        <main>
+
+            <div class="fg _container container container-fluid mx-auto" id="metadata">
+
+                <h2 class="text-center my-1 text-decoration-underline">File Meta Data MicroService</h2>
+                <p class="text-center my-1">This is a post request to '/micros/metadata/analysis'. It responds with a json file containing the name, file type, and file size in megabytes.</p>
+                <form enctype="multipart/form-data" method="POST" action="/metadata/analysis">
+                    <input id="inputfield" type="file" name="uploadedFile" class="upload-field" />
+                    <input id="button" type="submit" value="Upload" class="btn upload-button"/>
+                </form>
+
+            </div>
+
+        </main>
+    </body>
+</html>

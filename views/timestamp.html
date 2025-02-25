@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Jeffrey's TimeStamp MicroService</title>
+        <meta charset="UTF-8"/>
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+        <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/public/css/micros.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        
+        <header id="header">
+        </header>
+        <main>
+
+            <div class="fg _container container container-fluid mx-auto timestamp-container" id="timestamp">
+                <h2 class="text-center my-1 text-decoration-underline">Time Stamp MicroService</h2>
+                <iframe width="500px" height="250px" class="d-block mx-auto my-3" src="/timestamp/time" id="stampIframe"></iframe>
+
+                <input type="button" class="btn upload-button" id="newTimeStamp" value="Get New TimeStamp" />
+                <script defer>
+                    let btn = document.getElementById('newTimeStamp');
+                    let iframe = document.getElementById('stampIframe');
+                    btn.onclick = () => {
+                        iframe.style.visibility = 'hidden';
+                        iframe.src = '/micros/timestamp/time';
+                        iframe.style.visibility = 'visible';
+                    }
+                </script>
+            </div>
+
+        </main>
+    </body>
+</html>
